@@ -1,4 +1,5 @@
-const { time } = require('console');
+// Rode esse programa no Node.js;
+// Chamando readline para poder interagir com o usuário;
 const line = require('readline');
 
 const user = line.createInterface({input: process.stdin, output: process.stdout});
@@ -26,11 +27,13 @@ switch (travelerRank) {
             travelerExp = Math.ceil(Math.random() * 5000);
         break;
 }
- 
+
+// Inicio do programa;
 startStory();
 
 // ----------------------------------------------- FUNCTIONS ------------------------------------------------
 
+// Permite parar o programa até o usuário enviar um input;
 async function questionUser(text){
     return new Promise((resolve) => {
         user.question(text, (answer) => {
@@ -39,10 +42,12 @@ async function questionUser(text){
     })
 }
 
+// Pausa o programa por um período de tempo;
 function stopMessage(time){
     return new Promise((resolve) => {setTimeout(resolve, time)})
 }
 
+// Permite dar uma pausa entre letras do Text;
 function firstTextBeforeAction(talkingName = ' ', text = 'String', delay = 100){
     let index = 0;
     let timeStop = ((text.length * delay) + (10 * delay));
@@ -101,6 +106,7 @@ function calcularRank(){
     return travelernumberPositionRank;
 }
 
+//Começo da história;
 async function startStory() {
     timeStop = firstTextBeforeAction('', 'Ola, viajante, qual é o seu nome?\n', 100);
     await stopMessage(timeStop);
