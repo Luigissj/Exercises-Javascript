@@ -14,13 +14,10 @@ function preparationTimeInMinutes(numberOfLayers){
     return preparationTime; 
 }
 
-function totalTimeInMinutes(numberOfLayers, actualMinutesInOven){
+function totalTimeInMinutes(numberOfLayers, actualMinutesInOven) {
     const preparationTime = preparationTimeInMinutes(numberOfLayers);
-    const remainingMinutes = remainingMinutesInOven(actualMinutesInOven);
-    const totalTime = preparationTime + remainingMinutes;
+    const totalTime = preparationTime + actualMinutesInOven;
     return totalTime; 
-}
+  }
 
-console.log('Tempo Restante: ' + remainingMinutesInOven(20));
-console.log('Tempo de Preparação: ' + preparationTimeInMinutes(2));
-console.log('Tempo Total: ' + totalTimeInMinutes(3, 20));
+module.exports = {EXPECTED_MINUTES_IN_OVEN, remainingMinutesInOven, preparationTimeInMinutes, totalTimeInMinutes}
